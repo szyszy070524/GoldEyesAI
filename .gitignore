@@ -1,0 +1,13 @@
+# 忽略编译生成的文件
+__pycache__/
+*.pyc
+
+# 忽略模型文件（如果太大）
+data/processed/models/
+
+# 忽略大型数据文件
+data/processed/gold_prices_processed.csv
+data/raw/gold_prices_raw.csv
+
+# 忽略图表文件
+data/processed/charts/
