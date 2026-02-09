@@ -1,0 +1,34 @@
+project:
+  name: gold-price-predictor
+  data_days: 90
+  horizons: [1, 3, 5]
+
+data_source:
+  provider: stooq
+  stooq_url: "https://stooq.com/q/d/l/?s=xauusd&i=d"
+
+storage:
+  raw_csv: "data/raw/gold_prices_raw.csv"
+  processed_csv: "data/processed/gold_prices_processed.csv"
+  model_dir: "data/processed/models"
+
+features:
+  ma_windows: [5, 10, 20]
+  ema_windows: [5, 10, 20]
+  rsi_period: 14
+  macd_fast: 12
+  macd_slow: 26
+  macd_signal: 9
+  bollinger_window: 20
+  bollinger_std: 2
+  lag_days: 5
+
+model:
+  random_state: 42
+  train_window: 60
+  test_window: 10
+  min_train_size: 60
+  target_horizon: 1
+
+visualization:
+  output_dir: "data/processed/charts"
